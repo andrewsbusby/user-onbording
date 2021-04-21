@@ -1,4 +1,4 @@
-import React from 'reatc';
+import React from 'react';
 
 function Form (props) {
     const { values, submit, change, disabled, errors } = props;
