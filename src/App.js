@@ -22,6 +22,24 @@ const initialErrorValues ={
 const initialUsers = [];
 const initialDisable = true;
 
+const formSchema = Yup.object().shape({
+  username: Yup
+    .string()
+    .required('Required'),
+  email: Yup
+    .string()
+    .email('Must be a valid email')
+    .max(42)
+    .required('Email is required'),
+  password: Yup
+    .string()
+    .min(8)
+    .max(10)
+    .required('Password is required'),
+  termsOfService: Yup
+    .boolean()
+    .oneOf( [true], 'You must agree to the terms of service to continue'),
+});
 
 function App() {
 
@@ -43,6 +61,7 @@ axios
   return (
     <div className="App">
      <Form 
+      user={user}
       values={formValues}
       // change={inputChange}
       // submit={formSubmit}

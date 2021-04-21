@@ -54,7 +54,7 @@ function Form (props) {
                     required
                     />
             </lables>
-
+            <button>Submit</button>
         </form>
     )
 }
