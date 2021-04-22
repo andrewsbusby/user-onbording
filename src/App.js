@@ -1,6 +1,6 @@
 
 import './App.css';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Form from './components/From';
 import axios from 'axios';
 import * as Yup from 'yup';
@@ -64,23 +64,34 @@ const postNewUser = newUser => {
   axios
   .post('https://reqres.in/api/users', newUser)
   .then((res)=>{
-    setUsers([...users, res.data.data])
+    setUser([...user, res.data.data])
   })
   .catch((err)=> {
     console.log(err);
   })
 }
 
-const inputChange = newUser => {
-  Yup
-    .reach( formSchema, name)
-    .validate (value)
-    .then( valid => {
-      setFormErrors( {...formErrors, [name]: "",});
-    })
-    .catch( err => {
-      setFormErrors( {...formErrors, [name] : ''})
-    })
+// const inputChange = newUser => {
+//   Yup
+//     .reach( formSchema, data)
+//     .validate (value)
+//     .then( valid => {
+//       setFormErrors( {...formErrors, [data]: "",});
+//     })
+//     .catch( err => {
+//       setFormErrors( {...formErrors, [data] : err.errors[0],
+//       })
+//     })
+//     setFormValues( {...formValues, [data]: value})
+// };
+const formSubmit =() =>{
+  const newUser = {
+    username: formValues.username.trim(),
+    email: formValues.email.trim(),
+    password: formValues.password,
+    termsOfService: formValues.termsOfService,
+  }
+
 }
 
   return (
