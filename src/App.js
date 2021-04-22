@@ -71,19 +71,19 @@ const postNewUser = newUser => {
   })
 }
 
-// const inputChange = newUser => {
-//   Yup
-//     .reach( formSchema, data)
-//     .validate (value)
-//     .then( valid => {
-//       setFormErrors( {...formErrors, [data]: "",});
-//     })
-//     .catch( err => {
-//       setFormErrors( {...formErrors, [data] : err.errors[0],
-//       })
-//     })
-//     setFormValues( {...formValues, [data]: value})
-// };
+const inputChange = newUser => {
+  Yup
+    .reach( formSchema, data)
+    .validate (value)
+    .then( valid => {
+      setFormErrors( {...formErrors, [data]: "",});
+    })
+    .catch( err => {
+      setFormErrors( {...formErrors, [data] : err.errors[0],
+      })
+    })
+    setFormValues( {...formValues, [data]: value})
+};
 const formSubmit =() =>{
   const newUser = {
     username: formValues.username.trim(),
