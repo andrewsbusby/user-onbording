@@ -1,8 +1,26 @@
 import logo from './logo.svg';
 import './App.css';
+import React, {useState, useEffect} from 'react';
 import Form from './components/form';
 import axios from 'axios';
 import * as yup from 'yup';
+
+const initialFormValue = {
+  username: '',
+  email: '',
+  password: '',
+  termsOfService: false,
+}
+
+const initialErrorValue = {
+  username: '',
+  email: '',
+  password: '',
+  termsOfService: false,
+}
+
+const initialUser = [];
+const initialDiable = true;
 
 function App() {
   return (
